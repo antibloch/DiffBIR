@@ -51,7 +51,6 @@ DEFAULT_NEG_PROMPT = (
     "signature, jpeg artifacts, deformed, lowres, over-smooth."
 )
 
-
 def parse_args() -> Namespace:
     parser = ArgumentParser()
     # model parameters
@@ -172,7 +171,7 @@ def parse_args() -> Namespace:
     parser.add_argument(
         "--pos_prompt",
         type=str,
-        default=DEFAULT_POS_PROMPT,
+        default='Ultra-sharp railway track photograph, crisp boundary lines between rails and ballast, distinct edge definition on track components, highly detailed track profile, clearly defined ballast stone borders, sharp contrast between steel rails and wooden sleepers, precise geometric separation of track elements, textured ballast with clear containment within track bed, high-contrast photography with defined shadows, edge-enhanced imagery, industrial survey quality, engineering precision, microscopic detail on boundary areas, perfect focus on track-ballast interface, professional railway documentation standards',
         help=(
             "Descriptive words for 'good image quality'. "
             "It can also describe the things you WANT to appear in the image."
@@ -181,7 +180,8 @@ def parse_args() -> Namespace:
     parser.add_argument(
         "--neg_prompt",
         type=str,
-        default=DEFAULT_NEG_PROMPT,
+        default='blurry, distorted perspective, unrealistic proportions, cartoon-like, low resolution, painting style, watercolor effect, missing details, floating elements, incorrect shadows, toy-like appearance, oversaturated colors, abstract, surreal, lens flare, warped geometry, animation, digital art style, ai-generated artifacts, incorrect rail spacing',
+        # default= 'blurry edges, soft focus, indistinct boundaries, merged textures, bleeding colors, fuzzy transitions, low contrast, undefined margins, smudged details, hazy outlines, diffused boundaries, noise artifacts, motion blur, depth of field blur, out-of-focus elements, gradient transitions, ambiguous borders, feathered edges, smoothed transitions, lack of definition',
         help=(
             "Descriptive words for 'bad image quality'. "
             "It can also describe the things you DON'T WANT to appear in the image."
@@ -283,7 +283,6 @@ def parse_args() -> Namespace:
         "--precision", type=str, default="fp16", choices=["fp32", "fp16", "bf16"]
     )
     parser.add_argument("--llava_bit", type=str, default="4", choices=["16", "8", "4"])
-
     return parser.parse_args()
 
 
