@@ -143,9 +143,13 @@ During inference, we use off-the-shelf models from other papers as the stage 1 m
 
 We provide some examples for inference, check [inference.py](inference.py) for more arguments. Pretrained weights will be **automatically downloaded**. For users with limited VRAM, please run the following scripts with [tiled sampling](#tiled-sampling).
 
-### Ref code
+### Ref Bash Script
 ```
 python -u inference.py --task denoise --upscale 1 --version v2 --sampler spaced --steps 50 --captioner none  --cfg_scale 4.0 --input dataset --output results --device cuda --precision fp32 --cleaner_tiled --cleaner_tile_size 256 --cleaner_tile_stride 128 --vae_encoder_tiled --vae_encoder_tile_size 256 --vae_decoder_tiled --vae_decoder_tile_size 256 --cldm_tiled --cldm_tile_size 512 --cldm_tile_stride 256
+```
+
+```
+python -u inference.py --task denoise --upscale 1 --version v2 --sampler spaced --steps 50 --captioner none --cfg_scale 4.0 --input dataset --output results --device cuda --precision fp32 --cleaner_tiled --cleaner_tile_size 256 --cleaner_tile_stride 128 --vae_encoder_tiled --vae_encoder_tile_size 256 --vae_decoder_tiled --vae_decoder_tile_size 256 --cldm_tiled --cldm_tile_size 512 --cldm_tile_stride 256
 ```
 
 ### Blind Image Super-Resolution
